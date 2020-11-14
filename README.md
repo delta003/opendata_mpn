@@ -1,7 +1,6 @@
 # OpenData MPN
 
-A different API for [open data on educational institutions in Serbia](http://opendata.mpn.gov.rs/index.php?page=ustanove)
-provided by Ministry of Education and Science.
+A different API for open data on educational institutions in Serbia provided by the Ministry of Education, Science and Technological Development of the Republic of Serbia.
 
 API is defined in `api/api.yml`
 
