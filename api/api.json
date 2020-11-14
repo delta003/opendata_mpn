@@ -1,0 +1,229 @@
+{
+  "version" : 1,
+  "errors" : [ ],
+  "types" : [ {
+    "type" : "alias",
+    "alias" : {
+      "typeName" : {
+        "name" : "OpenDataId",
+        "package" : "org.petlja.opendata"
+      },
+      "alias" : {
+        "type" : "primitive",
+        "primitive" : "INTEGER"
+      },
+      "docs" : "Unique identifier of the school."
+    }
+  }, {
+    "type" : "object",
+    "object" : {
+      "typeName" : {
+        "name" : "Region",
+        "package" : "org.petlja.opendata"
+      },
+      "fields" : [ {
+        "fieldName" : "id",
+        "type" : {
+          "type" : "reference",
+          "reference" : {
+            "name" : "RegionId",
+            "package" : "org.petlja.opendata"
+          }
+        }
+      }, {
+        "fieldName" : "name",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "nameLt",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      } ]
+    }
+  }, {
+    "type" : "alias",
+    "alias" : {
+      "typeName" : {
+        "name" : "RegionId",
+        "package" : "org.petlja.opendata"
+      },
+      "alias" : {
+        "type" : "primitive",
+        "primitive" : "INTEGER"
+      },
+      "docs" : "Unique identifier of the region."
+    }
+  }, {
+    "type" : "object",
+    "object" : {
+      "typeName" : {
+        "name" : "School",
+        "package" : "org.petlja.opendata"
+      },
+      "fields" : [ {
+        "fieldName" : "id",
+        "type" : {
+          "type" : "reference",
+          "reference" : {
+            "name" : "OpenDataId",
+            "package" : "org.petlja.opendata"
+          }
+        }
+      }, {
+        "fieldName" : "townshipId",
+        "type" : {
+          "type" : "reference",
+          "reference" : {
+            "name" : "TownshipId",
+            "package" : "org.petlja.opendata"
+          }
+        }
+      }, {
+        "fieldName" : "type",
+        "type" : {
+          "type" : "reference",
+          "reference" : {
+            "name" : "SchoolType",
+            "package" : "org.petlja.opendata"
+          }
+        }
+      }, {
+        "fieldName" : "name",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "nameLt",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "address",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "addressLt",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "place",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "placeLt",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "postcode",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "website",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "phone",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "email",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      } ]
+    }
+  }, {
+    "type" : "enum",
+    "enum" : {
+      "typeName" : {
+        "name" : "SchoolType",
+        "package" : "org.petlja.opendata"
+      },
+      "values" : [ {
+        "value" : "OSNOVNA"
+      }, {
+        "value" : "SREDNJA"
+      }, {
+        "value" : "SPECIJALNA"
+      }, {
+        "value" : "MUZICKABALETSKA"
+      } ],
+      "docs" : "As classified in http://opendata.mpn.gov.rs/index.php?page=ustanove"
+    }
+  }, {
+    "type" : "object",
+    "object" : {
+      "typeName" : {
+        "name" : "Township",
+        "package" : "org.petlja.opendata"
+      },
+      "fields" : [ {
+        "fieldName" : "id",
+        "type" : {
+          "type" : "reference",
+          "reference" : {
+            "name" : "TownshipId",
+            "package" : "org.petlja.opendata"
+          }
+        }
+      }, {
+        "fieldName" : "name",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "nameLt",
+        "type" : {
+          "type" : "primitive",
+          "primitive" : "STRING"
+        }
+      }, {
+        "fieldName" : "regionId",
+        "type" : {
+          "type" : "reference",
+          "reference" : {
+            "name" : "RegionId",
+            "package" : "org.petlja.opendata"
+          }
+        }
+      } ]
+    }
+  }, {
+    "type" : "alias",
+    "alias" : {
+      "typeName" : {
+        "name" : "TownshipId",
+        "package" : "org.petlja.opendata"
+      },
+      "alias" : {
+        "type" : "primitive",
+        "primitive" : "INTEGER"
+      },
+      "docs" : "Unique identifier of the township."
+    }
+  } ],
+  "services" : [ ],
+  "extensions" : { }
+}

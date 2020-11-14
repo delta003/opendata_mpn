@@ -1,0 +1,46 @@
+types:
+  definitions:
+    default-package: org.petlja.opendata
+    objects:
+      RegionId:
+        docs: Unique identifier of the region.
+        alias: integer
+      Region:
+        fields:
+          id: RegionId
+          name: string
+          nameLt: string
+      TownshipId:
+        docs: Unique identifier of the township.
+        alias: integer
+      Township:
+        fields:
+          id: TownshipId
+          name: string
+          nameLt: string
+          regionId: RegionId
+      SchoolType:
+        docs: As classified in http://opendata.mpn.gov.rs/index.php?page=ustanove
+        values:
+          - OSNOVNA
+          - SREDNJA
+          - SPECIJALNA
+          - MUZICKABALETSKA
+      OpenDataId:
+        docs: Unique identifier of the school.
+        alias: integer
+      School:
+        fields:
+          id: OpenDataId
+          townshipId: TownshipId
+          type: SchoolType
+          name: string
+          nameLt: string
+          address: string
+          addressLt: string
+          place: string
+          placeLt: string
+          postcode: string
+          website: string
+          phone: string
+          email: string
