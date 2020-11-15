@@ -49,7 +49,7 @@ def regions(data):
                 id=region_id,
                 name=region_name,
                 name_lt=to_latin(region_name))
-    print("Found %d regions", len(regions))
+    print("Found %d regions" % len(regions))
     return regions
 
 
@@ -80,7 +80,7 @@ def townships(data, reg):
                     name=township_name,
                     name_lt=to_latin(township_name),
                     region_id=region.id)
-    print("Found %d townships", len(townships))
+    print("Found %d townships" % len(townships))
     return townships
 
 
@@ -107,7 +107,7 @@ def schools(data, town):
                 phone=entry[constants.PHONE_COL],
                 email=entry[constants.EMAIL_COL])
             schools[open_data_id] = school
-    print("Found %d schools", len(schools))
+    print("Found %d schools" % len(schools))
     return schools
 
 
@@ -123,39 +123,6 @@ def _township_for_name(town, name):
         if entry.name == name:
             return entry
     raise KeyError("Township not found for name %s" % name)
-
-
-def _school_type_as_str(school_type):
-    if school_type == SchoolType.OSNOVNA:
-        return 'OSNOVNA'
-    if school_type == SchoolType.SREDNJA:
-        return 'SREDNJA'
-    if school_type == SchoolType.SPECIJALNA:
-        return 'SPECIJALNA'
-    if school_type == SchoolType.MUZICKABALETSKA:
-        return 'MUZICKABALETSKA'
-    raise ValueError("Unknown school type %s" % school_type)
-
-
-def _schools_json(schools):
-    values = []
-    for school in schools:
-        values.append({
-            'id': str(school.id),
-            'townshipId': str(school.township_id),
-            'type': _school_type_as_str(school.type),
-            'name': school.name,
-            'nameLt': school.name_lt,
-            'address': school.address,
-            'addressLt': school.address_lt,
-            'place': school.place,
-            'placeLt': school.place_lt,
-            'postcode': school.postcode,
-            'website': school.website,
-            'phone': school.phone,
-            'email': school.email
-        })
-    return values
 
 
 def _json(objects):
@@ -178,7 +145,7 @@ def main():
     output = {
         'regions': _json(reg.values()),
         'townships': _json(town.values()),
-        'schools': _schools_json(school.values())
+        'schools': _json(school.values())
     }
 
     with codecs.open(constants.JSON_OUTPUT_PATH, 'w', encoding='utf8') as outfile:
